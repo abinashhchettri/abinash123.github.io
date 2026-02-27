@@ -123,6 +123,30 @@
     color: #38bdf8;
     margin-bottom: 10px;
 }
+        .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: #111827;
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.project-card:hover {
+    transform: scale(1.03);
+    border: 1px solid #38bdf8;
+    box-shadow: 0 0 30px rgba(56,189,248,0.3);
+}
+
+.project-card h3 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
 
         @media(max-width:768px){
             .hero h1{
@@ -222,6 +246,25 @@
 
 <section id="projects">
     <h2 class="section-title">Projects</h2>
+
+    <div class="projects-container">
+
+        <div class="project-card">
+            <h3>16-bit ALU Design (Verilog)</h3>
+            <p>Designed and simulated a 16-bit Arithmetic Logic Unit using Verilog with testbench validation.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>FPGA Traffic Light Controller</h3>
+            <p>Implemented a real-time traffic light control system on FPGA using Vivado.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>MATLAB Signal Processing Model</h3>
+            <p>Built simulation models for filtering and signal analysis using MATLAB.</p>
+        </div>
+
+    </div>
 </section>
 
 <section id="contact">
