@@ -147,6 +147,34 @@
     color: #38bdf8;
     margin-bottom: 10px;
 }
+        .contact-container {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+.contact-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    text-decoration: none;
+    background: #38bdf8;
+    color: #0f172a;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: white;
+    transform: translateY(-4px);
+}
 
         @media(max-width:768px){
             .hero h1{
@@ -269,8 +297,19 @@
 
 <section id="contact">
     <h2 class="section-title">Contact</h2>
-</section>
 
+    <div class="contact-container">
+
+        <p>If you'd like to collaborate on VLSI, FPGA, or engineering projects, feel free to reach out.</p>
+
+        <div class="contact-buttons">
+            <a href="mailto:chettriabinash2006@gmail.com" class="contact-btn">Email Me</a>
+            <a href="https://github.com/abinashhchettri" target="_blank" class="contact-btn">GitHub</a>
+            <a href="https://www.linkedin.com/in/abinash-chettri-077130381?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
+        </div>
+
+    </div>
+</section>
 <footer>
     © 2026 Abinash Chettri. All Rights Reserved.
 </footer>
