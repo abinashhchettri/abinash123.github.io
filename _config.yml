@@ -1,9 +1,5 @@
 title: Abinash Chettri
-description: Engineering Student | Anime Inspired | Developer
-baseurl: ""
-url: "https://abinashhchettri.github.io"
-
-remote_theme: pages-themes/cayman@v0.2.0
-
+description: Engineering | Anime | Projects
+remote_theme: mmistakes/minimal-mistakes
 plugins:
   - jekyll-remote-theme
