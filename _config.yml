@@ -2,3 +2,6 @@ title: "Abinash Blog"
 description: "Engineering | Coding | Student Life"
 theme: minima
 author: Abinash
+
+header_pages:
+  - about.md
