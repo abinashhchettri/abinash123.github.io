@@ -1,7 +1,11 @@
-title: "Abinash Blog"
-description: "Engineering | Coding | Student Life"
-theme: jekyll-theme-cayman
-author: Abinash
+
+title: "Abinash Chettri"
+description: "Anime • Engineering • Student Life"
+theme: minima
+author: Abinash Chettri
+
+url: "https://abinashhchettri.github.io"
 
 header_pages:
   - about.md
+  - projects.md
