@@ -1,6 +1,6 @@
 title: "Abinash Blog"
 description: "Engineering | Coding | Student Life"
-theme: minima
+theme: jekyll-theme-cayman
 author: Abinash
 
 header_pages:
