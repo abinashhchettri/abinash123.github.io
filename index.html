@@ -2,350 +2,267 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Abinash | VLSI Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <title>Abinash | VLSI Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
+        :root {
+            --bg-color: #0b0e14;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --accent-color: #00d4ff; /* Electric Blue */
+            --text-primary: #e0e0e0;
+            --text-secondary: #94a3b8;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background: #0f172a;
-            color: #f1f5f9;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        html {
-    scroll-behavior: smooth;
-}
+
+        /* Circuit Pattern Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(var(--accent-color) 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            opacity: 0.1;
+            z-index: -1;
+        }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10%;
-            background: #111827;
+            padding: 1.5rem 10%;
+            background: rgba(11, 14, 20, 0.8);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        nav h2 {
-            color: #38bdf8;
+        nav .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.5rem;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 2rem; }
         nav ul li a {
             text-decoration: none;
-            color: #f1f5f9;
+            color: var(--text-primary);
+            font-size: 0.9rem;
             transition: 0.3s;
         }
+        nav ul li a:hover { color: var(--accent-color); }
 
-        nav ul li a:hover {
-            color: #38bdf8;
-        }
-
+        /* Hero Section */
         .hero {
-            height: 90vh;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 10%;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            color: #38bdf8;
+            font-size: 4rem;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #fff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            margin-top: 15px;
+            color: var(--text-secondary);
             font-size: 1.2rem;
             max-width: 600px;
         }
 
-        section {
-            padding: 80px 10%;
+        /* Sections */
+        section { padding: 80px 10%; }
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
         }
 
-        h2.section-title {
-            margin-bottom: 30px;
-            color: #38bdf8;
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        footer {
-            text-align: center;
+        .skill-card {
+            background: var(--card-bg);
             padding: 30px;
-            background: #111827;
-            margin-top: 50px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
         }
 
-        .about-container {
+        .skill-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        /* Projects */
+        .project-card {
+            background: var(--card-bg);
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
             display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .about-card {
-            background: #1e293b;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(56,189,248,0.2);
+        .project-info h3 { color: var(--accent-color); margin-bottom: 5px; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--accent-color);
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
         }
-        .skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
 
-.skill-card {
-    background: #1e293b;
-    padding: 25px;
-    border-radius: 15px;
-    transition: 0.4s ease;
-    border: 1px solid transparent;
-}
+        .btn:hover { opacity: 0.8; transform: scale(1.05); }
 
-.skill-card:hover {
-    transform: translateY(-8px);
-    border: 1px solid #38bdf8;
-    box-shadow: 0 0 25px rgba(56,189,248,0.4);
-}
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
 
-.skill-card h3 {
-    color: #38bdf8;
-    margin-bottom: 10px;
-}
-        .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.project-card {
-    background: #111827;
-    padding: 25px;
-    border-radius: 15px;
-    transition: 0.4s ease;
-    border: 1px solid transparent;
-}
-
-.project-card:hover {
-    transform: scale(1.03);
-    border: 1px solid #38bdf8;
-    box-shadow: 0 0 30px rgba(56,189,248,0.3);
-}
-
-.project-card h3 {
-    color: #38bdf8;
-    margin-bottom: 10px;
-}
-        .contact-container {
-    text-align: center;
-    max-width: 700px;
-    margin: auto;
-}
-
-.contact-buttons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.contact-btn {
-    text-decoration: none;
-    background: #38bdf8;
-    color: #0f172a;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
-.contact-btn:hover {
-    background: white;
-    transform: translateY(-4px);
-}
-        .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-.fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-        @media(max-width:768px){
-            .hero h1{
-                font-size: 2rem;
-            }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; }
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <h2>Abinash</h2>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+    <nav>
+        <div class="logo">ABINASH_CHETTRI.v</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<div class="hero">
-    <h1>Hello, I'm Abinash Chettri</h1>
-    <p>ECE Student | Future VLSI Engineer | Building logic into silicon.</p>
-</div>
+    <section class="hero">
+        <p style="color: var(--accent-color); font-family: 'JetBrains Mono'; margin-bottom: 10px;">&gt; Initializing Portfolio...</p>
+        <h1>Abinash Chettri</h1>
+        <p>2nd Year ECE Student @ NIT Sikkim. Specializing in VLSI Design, Verilog, and Digital Logic Systems.</p>
+        <a href="#contact" class="btn">Connect Now</a>
+    </section>
 
-<section id="about" class="fade-in">
-    <h2 class="section-title">About Me</h2>
+    <section id="about">
+        <h2>About Me</h2>
+        <p style="max-width: 800px; color: var(--text-secondary);">
+            I am passionate about the intersection of hardware and software. My goal is to master 
+            <strong>VLSI Design</strong> and understand how complex logic transforms into physical intelligence. 
+            I treat my engineering journey like an anime protagonist—constant evolution through precision and focus.
+        </p>
+    </section>
 
-    <div class="about-container">
-
-        <div style="flex:1; min-width:280px;">
-            <h3 style="color:#38bdf8; margin-bottom:15px;">ABINASH CHETTRI</h3>
-
-            <p style="margin-bottom:15px;">
-                I am a 2nd Year Electronics & Communication Engineering student at 
-                <strong>National Institute of Technology Sikkim</strong>.
-            </p>
-
-            <p style="margin-bottom:15px;">
-                My core interest lies in <strong>VLSI Design</strong> and digital systems.
-                I am passionate about understanding how logic circuits work
-                and how hardware transforms code into physical intelligence.
-            </p>
-
-            <p>
-                Skilled in <strong>DSA, MATLAB, Verilog, and Vivado</strong>,
-                I continuously improve my technical foundation —
-                training with consistency, precision, and focus like an anime protagonist
-                evolving toward mastery.
-            </p>
-        </div>
-
-        <div style="flex:1; min-width:250px;">
-            <div class="about-card">
-                <h4 style="color:#38bdf8; margin-bottom:15px;">Core Focus</h4>
-                <ul style="line-height:1.8;">
-                    <li>VLSI & Digital Design</li>
-                    <li>Hardware Description (Verilog)</li>
-                    <li>FPGA Development (Vivado)</li>
-                    <li>Problem Solving (DSA)</li>
-                    <li>MATLAB Simulation</li>
-                </ul>
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Verilog HDL</h3>
+                <p>Hardware Modeling</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-terminal"></i>
+                <h3>Vivado</h3>
+                <p>FPGA Implementation</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-square-root-variable"></i>
+                <h3>MATLAB</h3>
+                <p>Signal & Systems</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>DSA</h3>
+                <p>Logic Optimization</p>
             </div>
         </div>
+    </section>
 
-    </div>
-</section>
-
-<section id="skills" class="fade-in">
-    <h2 class="section-title">Technical Skills</h2>
-
-    <div class="skills-container">
-
-        <div class="skill-card">
-            <h3>Data Structures & Algorithms</h3>
-            <p>Strong foundation in problem solving and optimized logic building.</p>
-        </div>
-
-        <div class="skill-card">
-            <h3>Verilog HDL</h3>
-            <p>Designing digital systems and hardware modules using behavioral & structural modeling.</p>
-        </div>
-
-        <div class="skill-card">
-            <h3>Vivado (FPGA)</h3>
-            <p>Simulation, synthesis, and FPGA implementation workflows.</p>
-        </div>
-
-        <div class="skill-card">
-            <h3>MATLAB</h3>
-            <p>Signal processing, mathematical modeling, and system simulations.</p>
-        </div>
-
-    </div>
-</section>
-
-<section id="projects" class="fade-in">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="projects-container">
-
+    <section id="projects">
+        <h2>Featured Projects</h2>
         <div class="project-card">
-            <h3>16-bit ALU Design (Verilog)</h3>
-            <p>Designed and simulated a 16-bit Arithmetic Logic Unit using Verilog with testbench validation.</p>
+            <div class="project-info">
+                <h3>16-bit ALU Design</h3>
+                <p>Implemented Arithmetic Logic Unit using Verilog with comprehensive testbench validation.</p>
+            </div>
+            <i class="fas fa-external-link-alt" style="color: var(--text-secondary);"></i>
         </div>
-
         <div class="project-card">
-            <h3>FPGA Traffic Light Controller</h3>
-            <p>Implemented a real-time traffic light control system on FPGA using Vivado.</p>
+            <div class="project-info">
+                <h3>FPGA Traffic Controller</h3>
+                <p>Real-time traffic management system synthesized on Vivado for FPGA hardware.</p>
+            </div>
+            <i class="fas fa-external-link-alt" style="color: var(--text-secondary);"></i>
         </div>
+    </section>
 
-        <div class="project-card">
-            <h3>MATLAB Signal Processing Model</h3>
-            <p>Built simulation models for filtering and signal analysis using MATLAB.</p>
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>Looking to collaborate on VLSI or Digital Design projects?</p>
+        <div style="margin-top: 20px;">
+            <a href="mailto:chettriabinash2006@gmail.com" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 20px;"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/abinashhchettri" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 20px;"><i class="fab fa-github"></i></a>
+            <a href="#" style="color: var(--accent-color); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
         </div>
+    </section>
 
-    </div>
-</section>
-
-<section id="contact" class="fade-in">
-    <h2 class="section-title">Contact</h2>
-
-    <div class="contact-container">
-
-        <p>If you'd like to collaborate on VLSI, FPGA, or engineering projects, feel free to reach out.</p>
-
-        <div class="contact-buttons">
-            <a href="mailto:chettriabinash2006@gmail.com" class="contact-btn">Email Me</a>
-            <a href="https://github.com/abinashhchettri" target="_blank" class="contact-btn">GitHub</a>
-            <a href="https://www.linkedin.com/in/abinash-chettri-077130381?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
-        </div>
-
-    </div>
-</section>
-<footer>
-    © 2026 Abinash Chettri. All Rights Reserved.
-</footer>
-
-    <script>
-    const faders = document.querySelectorAll('.fade-in');
-
-    const appearOptions = {
-        threshold: 0.2
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target);
-        });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
-</script>
+    <footer>
+        <p>&copy; 2026 Abinash Chettri | Designed for Silicon Precision.</p>
+    </footer>
 
 </body>
 </html>
