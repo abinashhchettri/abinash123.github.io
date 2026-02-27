@@ -3,3 +3,4 @@ description: Engineering | Anime | Projects
 remote_theme: mmistakes/minimal-mistakes
 plugins:
   - jekyll-remote-theme
+  minimal_mistakes_skin: dark
