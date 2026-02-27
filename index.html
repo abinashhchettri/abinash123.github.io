@@ -20,6 +20,9 @@
             color: #f1f5f9;
             line-height: 1.6;
         }
+        html {
+    scroll-behavior: smooth;
+}
 
         nav {
             display: flex;
@@ -175,6 +178,16 @@
     background: white;
     transform: translateY(-4px);
 }
+        .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
         @media(max-width:768px){
             .hero h1{
@@ -201,7 +214,7 @@
     <p>ECE Student | Future VLSI Engineer | Building logic into silicon.</p>
 </div>
 
-<section id="about">
+<section id="about" class="fade-in">
     <h2 class="section-title">About Me</h2>
 
     <div class="about-container">
@@ -244,7 +257,7 @@
     </div>
 </section>
 
-<section id="skills">
+<section id="skills" class="fade-in">
     <h2 class="section-title">Technical Skills</h2>
 
     <div class="skills-container">
@@ -272,7 +285,7 @@
     </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="fade-in">
     <h2 class="section-title">Projects</h2>
 
     <div class="projects-container">
@@ -295,7 +308,7 @@
     </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="fade-in">
     <h2 class="section-title">Contact</h2>
 
     <div class="contact-container">
@@ -313,6 +326,26 @@
 <footer>
     © 2026 Abinash Chettri. All Rights Reserved.
 </footer>
+
+    <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+        threshold: 0.2
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+</script>
 
 </body>
 </html>
